@@ -1,0 +1,25 @@
+/* mbed Microcontroller Library
+ * Copyright (c) 2019 ARM Limited
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "mbed.h"
+#include <cstdio>
+#include <exception>
+
+
+// Blinking rate in milliseconds
+#define BLINKING_RATE     10ms
+
+int main()
+{
+    // Initialise the digital pin LED1 as an output
+    // DigitalOut led(PA_6);
+    AnalogIn ADC(PA_6);
+
+    while (true) {
+        // led = !led;
+            printf("adc: %u \n", ADC.read_u16());
+            ThisThread::sleep_for(BLINKING_RATE);
+        }
+}
